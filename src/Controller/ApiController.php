@@ -19,9 +19,8 @@ class ApiController extends AbstractController
             $postRepository->findAll(),
             200,
             [],
-            ['groups' => 'post:read']
+            ["groups"=>"post:read"]
         );
 
-        return $this->render('api/index.html.twig', compact('posts'));
     }
 }

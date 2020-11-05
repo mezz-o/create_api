@@ -5,11 +5,16 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\PostRepository;
 use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Serializer\Annotation\Groups;
 
+
+//use ApiPlatform via @ApiResource
+
 /**
  * @ORM\Entity(repositoryClass=PostRepository::class)
+ * @ApiResource
  */
 class Post
 {
@@ -35,6 +40,7 @@ class Post
 
     /**
      * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="post")
+     * @Groups("post:read")
      */
     private $comments;
 

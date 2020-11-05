@@ -21,25 +21,22 @@ class IndexController extends AbstractController
         CommentRepository $commentRepository,
         EntityManagerInterface $em
     ): Response {
-
         // hardcoded data for API
         $post1 = new Post();
         $post1->setTitle('title');
         $post1->setDescription('desc');
 
-
         $post2 = new Post();
-        $post2->setTitle('title');
-        $post2->setDescription('desc');
+        $post2->setTitle('title2');
+        $post2->setDescription('desc2');
 
         $comment1 = new Comment();
-
-        $comment1->setDescription('comment');
+        $comment1->setContent('comment');
         $comment1->setPost($post1);
+        
         $em->persist($post1);
         $em->persist($post2);
         $em->persist($comment1);
-
 
         $em->flush();
 
