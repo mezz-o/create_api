@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello IndexController!{% endblock %}
+
+{% block body %}
+
+{% for comment in comments %}
+<h1>{{ comment.post.title }}</h1>
+<p>{{ comment.post.description }}</p>
+<small> {{ comment.description }} </small>
+
+{% endfor %}
+
+
+
+{% endblock %}

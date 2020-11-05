@@ -18,9 +18,14 @@ class Comment
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=Post::class, inversedBy="comments")
+     */
+    private $post;
 
     public function getId(): ?int
     {
@@ -35,6 +40,18 @@ class Comment
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPost(): ?Post
+    {
+        return $this->post;
+    }
+
+    public function setPost(?Post $post): self
+    {
+        $this->post = $post;
 
         return $this;
     }
